@@ -1,3 +1,5 @@
+import "./global.css";
+
 const routes = {
   "/": "home",
   "/products": "products",
