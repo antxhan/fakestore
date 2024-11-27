@@ -1,6 +1,3 @@
-const REPO_NAME = "fakestore";
-
-// routes.js
 const routes = {
   "/": "home",
   "/products": "products",
@@ -8,9 +5,13 @@ const routes = {
   "/checkout": "checkout",
 };
 
-// router.js
 function router() {
-  let path = window.location.pathname.replace(/\/$/, ""); // Normalize path
+  let path = window.location.pathname.replace(/\/$/, "");
+  // when deploying to github pages the path is /fakestore/path
+  // when running locally the path is /path
+  if (path.startsWith("/fakestore")) {
+    path = path.replace("/fakestore", "");
+  }
   if (path === "") path = "/";
   const page = routes[path] || "404";
   loadPage(page);
@@ -19,7 +20,6 @@ function router() {
 function loadPage(page) {
   import(`./pages/${page}.js`)
     .then((module) => {
-      // console.log(module);
       document.querySelector("#app").innerHTML = module.render();
     })
     .catch((err) => {
