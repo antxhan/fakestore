@@ -12,13 +12,11 @@ const routes = {
 function router() {
   let path = window.location.pathname.replace(/\/$/, ""); // Normalize path
   if (path === "") path = "/";
-  console.log("path", path);
   const page = routes[path] || "404";
   loadPage(page);
 }
 
 function loadPage(page) {
-  console.log("page;", page);
   import(`./pages/${page}.js`)
     .then((module) => {
       console.log(module);
