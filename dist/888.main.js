@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunktemplate=self.webpackChunktemplate||[]).push([[888],{888:(e,n,t)=>{function r(){return"\n    <h1>Home</h1>\n    "}t.r(n),t.d(n,{render:()=>r})}}]);

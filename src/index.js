@@ -1,3 +1,5 @@
+const REPO_NAME = "fakestore";
+
 // routes.js
 const routes = {
   "/": "home",
@@ -38,7 +40,19 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     if (e.target.matches("a")) {
       e.preventDefault();
-      history.pushState(null, "", e.target.href);
+      console.log(e.target.href);
+      if (process.env.NODE_ENV === "production") {
+        let path = window.location.pathname.replace(/\/$/, ""); // Normalize path
+        if (path === "") path = "/";
+        console.log(path);
+        history.pushState(
+          null,
+          "",
+          `https://antxhan.github.io/fakestore${path}`
+        );
+      } else {
+        history.pushState(null, "", e.target.href);
+      }
       router();
     }
   });

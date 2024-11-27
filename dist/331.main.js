@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunktemplate=self.webpackChunktemplate||[]).push([[331],{331:(e,r,t)=>{function n(){return"<h1>404 Error: Page Not Found</h1>"}t.r(r),t.d(r,{render:()=>n})}}]);
