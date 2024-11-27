@@ -1,3 +1,3 @@
 export function render() {
-  return `<h1>From pages: 404 Error: Page Not Found</h1>`;
+  return `<h1>404 Error: Page Not Found</h1>`;
 }

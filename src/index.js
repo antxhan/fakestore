@@ -1,5 +1,3 @@
-console.log("Webpack Dev Server is running!");
-
 // routes.js
 const routes = {
   "/": "home",
