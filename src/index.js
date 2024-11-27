@@ -19,7 +19,7 @@ function router() {
 function loadPage(page) {
   import(`./pages/${page}.js`)
     .then((module) => {
-      console.log(module);
+      // console.log(module);
       document.querySelector("#app").innerHTML = module.render();
     })
     .catch((err) => {
@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
       e.preventDefault();
       console.log(e.target.href);
       if (process.env.NODE_ENV === "production") {
-        let path = window.location.pathname.replace(/\/$/, ""); // Normalize path
+        let path = new URL(e.target.href).pathname.replace(/\/$/, "");
         if (path === "") path = "/";
         console.log(path);
         history.pushState(
