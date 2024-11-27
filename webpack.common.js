@@ -10,18 +10,13 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      //   title: "Production",
       template: "./src/template.html",
       // filename: "template.html",
     }),
-    // new HtmlWebpackPlugin({
-    //   template: "./src/template.html",
-    //   filename: "404.html", // GitHub Pages fallback
-    // }),
     ...(isProduction
       ? [
           new HtmlWebpackPlugin({
-            template: "./src/index.html",
+            template: "./src/template.html",
             filename: "404.html", // Fallback for production
           }),
         ]
@@ -31,7 +26,7 @@ module.exports = {
     filename: "main.js",
     path: path.resolve(__dirname, "dist"),
     clean: true,
-    publicPath: "/",
+    publicPath: isProduction ? "/fakestore/" : "/",
   },
   module: {
     rules: [
