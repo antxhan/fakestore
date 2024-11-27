@@ -22,12 +22,12 @@ function loadPage(page) {
   import(`./pages/${page}.js`)
     .then((module) => {
       console.log(module);
-      document.querySelector("body").innerHTML = module.render();
+      document.querySelector("#app").innerHTML = module.render();
     })
     .catch((err) => {
       console.log(err);
       // should default to 404.js and not the line below
-      // document.querySelector("body").innerHTML = "<h1>Page Not Found</h1>";
+      document.querySelector("#app").innerHTML = "<h1>Page Not Found</h1>";
     });
 }
 
@@ -37,6 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.target.matches("[data-outbound]")) {
       e.preventDefault();
       window.open(e.target.href, "_blank");
+      return;
     }
     if (e.target.matches("a")) {
       e.preventDefault();
