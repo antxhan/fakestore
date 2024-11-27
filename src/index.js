@@ -26,8 +26,9 @@ function loadPage(page) {
     })
     .catch((err) => {
       console.log(err);
-      // should default to 404.js and not the line below
-      document.querySelector("#app").innerHTML = "<h1>Page Not Found</h1>";
+      import("./pages/404.js").then((module) => {
+        document.querySelector("#app").innerHTML = module.render();
+      });
     });
 }
 
