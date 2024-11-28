@@ -19,15 +19,22 @@ function router() {
   loadPage(page);
 }
 
+function reloadPage(html) {
+  // if the page has async components, this callback updates the DOM with the new HTML
+  document.querySelector("#app").innerHTML = html;
+}
+
 function loadPage(page) {
   import(`./pages/${page}.js`)
-    .then((module) => {
-      document.querySelector("#app").innerHTML = module.render();
+    .then(async (module) => {
+      document.querySelector("#app").innerHTML = await module.render(
+        reloadPage
+      );
     })
     .catch((err) => {
       console.log(err);
       import("./pages/404.js").then((module) => {
-        document.querySelector("#app").innerHTML = module.render();
+        document.querySelector("#app").innerHTML = module.render(reloadPage);
       });
     });
 }
