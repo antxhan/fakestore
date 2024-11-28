@@ -1,26 +1,26 @@
 import "./global.css";
 
-const routes = {
-  "/": "home",
-  "/products": "products",
-  "/cart": "cart",
-  "/checkout": "checkout",
-};
-
 function router() {
-  let path = window.location.pathname.replace(/\/$/, "");
-  // when deploying to github pages the path is /fakestore/path
-  // when running locally the path is /path
-  if (path.startsWith("/fakestore")) {
-    path = path.replace("/fakestore", "");
+  let path = window.location.pathname;
+  path = path.replace(/\/$/, "");
+
+  // adjust path for github pages deployment
+  // (e.g., '/fakestore/path' -> '/path')
+  const GITHUB_BASE_PATH = "/fakestore";
+  if (path.startsWith(GITHUB_BASE_PATH)) {
+    path = path.slice(GITHUB_BASE_PATH.length);
   }
-  if (path === "") path = "/";
-  const page = routes[path] || "404";
+
+  if (!path) {
+    path = "/home";
+  }
+  const page = path.slice(1) || "404";
   loadPage(page);
 }
 
 function reloadPage(html) {
-  // if the page has async components, this callback updates the DOM with the new HTML
+  // if the page has async components,
+  // this callback updates the DOM with the new HTML
   document.querySelector("#app").innerHTML = html;
 }
 
