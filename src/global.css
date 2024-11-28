@@ -17,7 +17,6 @@ body {
   font-family: var(--ff-sans);
 }
 
-
 .sticky-navbar {
   position: sticky;
   top: 0;
@@ -44,7 +43,7 @@ body {
   font-size: 24px;
   font-weight: bold;
   margin-left: 10px;
-  color: #43C3D1;
+  color: #43c3d1;
 }
 
 .search-bar {
@@ -77,7 +76,8 @@ body {
   height: 24px;
 }
 
-.cart-count, .wishlist-count {
+.cart-count,
+.wishlist-count {
   position: absolute;
   top: -10px;
   right: -10px;
@@ -111,10 +111,10 @@ body {
 
 @media (max-width: 768px) {
   .search-bar input {
-      width: 60%;
+    width: 60%;
   }
 
   .user-info > div {
-      margin-left: 10px;
+    margin-left: 10px;
   }
 }
