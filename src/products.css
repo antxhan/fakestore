@@ -73,3 +73,18 @@ main {
   font-size: 12px;
   color: red;
 }
+
+/* Responsive design */
+/* Tablet: 2 columns per row */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr); 
+  }
+}
+
+/* Mobile: 1 colums per row */
+@media (max-width: 767px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+}
