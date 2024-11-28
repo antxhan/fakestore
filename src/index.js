@@ -21,8 +21,8 @@ function router() {
 
 function loadPage(page) {
   import(`./pages/${page}.js`)
-    .then((module) => {
-      document.querySelector("#app").innerHTML = module.render();
+    .then(async (module) => {
+      document.querySelector("#app").innerHTML = await module.render();
     })
     .catch((err) => {
       console.log(err);
