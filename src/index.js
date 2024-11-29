@@ -1,3 +1,4 @@
+import './global.css';
 document.addEventListener('DOMContentLoaded', async () => {
     const countryList = document.getElementById('country-list');
     const selectedCountry = document.querySelector('.selected-country');
