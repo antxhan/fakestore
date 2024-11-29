@@ -1,3 +1,4 @@
+const path = require("path");
 const { merge } = require("webpack-merge");
 const common = require("./webpack.common.js");
 
@@ -7,5 +8,7 @@ module.exports = merge(common, {
   devServer: {
     watchFiles: ["./src/template.html"],
     // static: "./dist",
+    compress: true,
+    historyApiFallback: true,
   },
 });
