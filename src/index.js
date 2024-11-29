@@ -1,5 +1,7 @@
 const REPO_NAME = "fakestore";
 
+import "./global.css";
+
 // routes.js
 const routes = {
   "/": "home",
