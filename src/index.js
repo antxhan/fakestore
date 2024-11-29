@@ -1,6 +1,6 @@
-const REPO_NAME = "fakestore";
-
 import "./global.css";
+
+const REPO_NAME = "fakestore";
 
 // routes.js
 const routes = {
@@ -10,24 +10,41 @@ const routes = {
   "/checkout": "checkout",
 };
 
-// router.js
 function router() {
-  let path = window.location.pathname.replace(/\/$/, ""); // Normalize path
-  if (path === "") path = "/";
-  const page = routes[path] || "404";
+  let path = window.location.pathname;
+  path = path.replace(/\/$/, "");
+
+  // adjust path for github pages deployment
+  // (e.g., '/fakestore/path' -> '/path')
+  const GITHUB_BASE_PATH = "/fakestore";
+  if (path.startsWith(GITHUB_BASE_PATH)) {
+    path = path.slice(GITHUB_BASE_PATH.length);
+  }
+
+  if (!path) {
+    path = "/home";
+  }
+  const page = path.slice(1) || "404";
   loadPage(page);
+}
+
+function reloadPage(html) {
+  // if the page has async components,
+  // this callback updates the DOM with the new HTML
+  document.querySelector("#app").innerHTML = html;
 }
 
 function loadPage(page) {
   import(`./pages/${page}.js`)
-    .then((module) => {
-      // console.log(module);
-      document.querySelector("#app").innerHTML = module.render();
+    .then(async (module) => {
+      document.querySelector("#app").innerHTML = await module.render(
+        reloadPage
+      );
     })
     .catch((err) => {
       console.log(err);
       import("./pages/404.js").then((module) => {
-        document.querySelector("#app").innerHTML = module.render();
+        document.querySelector("#app").innerHTML = module.render(reloadPage);
       });
     });
 }
