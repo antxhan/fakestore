@@ -1,3 +1,5 @@
+import "./products.css";
+import "./likeButton";
 import "./global.css";
 
 const REPO_NAME = "fakestore";
