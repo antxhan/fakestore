@@ -1,5 +1,15 @@
 import "./global.css";
 
+const REPO_NAME = "fakestore";
+
+// routes.js
+const routes = {
+  "/": "home",
+  "/products": "products",
+  "/cart": "cart",
+  "/checkout": "checkout",
+};
+
 function router() {
   let path = window.location.pathname;
   path = path.replace(/\/$/, "");
