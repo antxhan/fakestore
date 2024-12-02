@@ -23,11 +23,3 @@ export default function ProductListItem({ product }) {
   </a>
   `;
 }
-
-// <img
-//   src="${product.image}"
-//   alt="${
-//     product.title
-//   } image"
-//   class="product-image"
-// ></img>;
