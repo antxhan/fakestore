@@ -1,4 +1,3 @@
-import "./products.css";
 import "./likeButton";
 import "./global.css";
 

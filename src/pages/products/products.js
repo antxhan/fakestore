@@ -1,13 +1,19 @@
 import { api } from "../../utils/api";
 import PriceFilter from "../../components/PriceFilter/PriceFilter";
 import CategoriesFilter from "../../components/CategoriesFilter/CategoriesFilter";
+import "./products.css";
+import ProductListItem from "../../components/ProductListItem";
 
 const PRODUCTS_PER_PAGE = 20;
 
 function createHTML(productList) {
   return `
     <h1>Products</h1>
-    <ul>${productList}</ul>
+    <main>
+      <section class="product-grid">
+      ${productList}
+      </section>
+    </main>
     ${PriceFilter()}
     ${CategoriesFilter()}
     `;
@@ -22,7 +28,7 @@ export function render(callback) {
     .products(PRODUCTS_PER_PAGE)
     .then((products) => {
       const productList = products
-        .map((product) => `<li>${product.title}</li>`)
+        .map((product) => ProductListItem({ product }))
         .join("");
 
       // callback to update the DOM
