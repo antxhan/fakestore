@@ -8,7 +8,7 @@ export default function ProductListItem({ product }) {
         <div class="left-info">
             <p class="brand">${product.category}</p>
             <p class="name">${product.title}</p>
-            <p class="price">${product.price}</p>
+            <p class="price">$${product.price}</p>
         </div>
         <div class="right-info">
             <button class="like-btn"><span>&#x2764;</span></button>
