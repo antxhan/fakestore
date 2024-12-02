@@ -1,8 +1,21 @@
- /* FONT FAMILIES */
 :root {
+  /* COLORS */
+  --clr-neutral-000: #fff;
+  --clr-neutral-200: #ddd;
+  --clr-neutral-600: #666;
+  --clr-neutral-900: #000;
+
+  --clr-primary-500: #007bff;
+
+  /* FONT FAMILIES */
   --ff-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
+
+  /* FONT SIZES */
+  --fs-normal: 1rem;
+  --fs-small: 0.9rem;
+  --fs-xs: 0.8rem;
 }
 
 *,
@@ -15,6 +28,13 @@
 
 body {
   font-family: var(--ff-sans);
+}
+
+main {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 footer {
@@ -108,7 +128,7 @@ footer {
   top: 0;
   width: 100%;
   background-color: white;
-  z-index:2;
+  z-index: 2;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   display: flex;
   justify-content: space-between;
