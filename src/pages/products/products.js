@@ -1,4 +1,5 @@
 import { api } from "../../utils/api";
+import { db } from "../../utils/db";
 import PriceFilter from "../../components/PriceFilter/PriceFilter";
 import CategoriesFilter from "../../components/CategoriesFilter/CategoriesFilter";
 import "./products.css";
@@ -41,7 +42,13 @@ export function render(callback) {
         button.addEventListener("click", (e) => {
           e.preventDefault();
           // TODO: add to db likes
-          // TODO: hover effect
+          const productId =
+            e.target.parentNode.parentNode.parentNode.parentNode.href.split(
+              "id="
+            )[1];
+          db.setLikes(productId);
+
+          // set class and icon
           button.classList.toggle("liked");
           button.innerHTML = `<img src="${
             button.classList.contains("liked")
