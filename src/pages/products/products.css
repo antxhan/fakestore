@@ -1,4 +1,3 @@
-/* Product grid layout */
 .product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(235px, 1fr));

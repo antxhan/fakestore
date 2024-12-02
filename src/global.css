@@ -1,4 +1,12 @@
 :root {
+  /* COLORS */
+  --clr-neutral-000: #fff;
+  --clr-neutral-200: #ddd;
+  --clr-neutral-600: #666;
+  --clr-neutral-900: #000;
+
+  --clr-primary-500: #007bff;
+
   /* FONT FAMILIES */
   --ff-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue",
@@ -6,7 +14,8 @@
 
   /* FONT SIZES */
   --fs-normal: 1rem;
-  --fs-small: 0.75rem;
+  --fs-small: 0.9rem;
+  --fs-xs: 0.8rem;
 }
 
 *,

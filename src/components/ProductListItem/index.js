@@ -7,9 +7,11 @@ export default function ProductListItem({ product }) {
   const isLiked = db.getLikes().includes(product.id.toString());
   return `
   <a class="product-card" href="/product?id=${product.id}">
-    <img src="${product.image}" alt="${
+    <div class="product-image-wrapper">
+      <img src="${product.image}" alt="${
     product.title
   } image" class="product-image">
+    </div>
     <div class="product-info">
         <div>
             <p class="category">${toCapitalize(product.category)}</p>
@@ -21,3 +23,11 @@ export default function ProductListItem({ product }) {
   </a>
   `;
 }
+
+// <img
+//   src="${product.image}"
+//   alt="${
+//     product.title
+//   } image"
+//   class="product-image"
+// ></img>;
