@@ -1,4 +1,4 @@
-import { db } from "../utils/db";
+import { db } from "../../utils/db";
 
 export default async function Cart() {
   //   const storage = localStorage.getItem("cart");
