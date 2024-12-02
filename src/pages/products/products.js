@@ -39,7 +39,8 @@ export function render(callback) {
 
       const likeButtons = document.querySelectorAll(".like-btn");
       likeButtons.forEach((button) => {
-        button.addEventListener("click", () => {
+        button.addEventListener("click", (e) => {
+          e.preventDefault();
           // TODO: add to db likes
           button.classList.toggle("liked");
           button.innerHTML = `<img src="${

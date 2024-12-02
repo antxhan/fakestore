@@ -4,7 +4,7 @@ import LikeButton from "../LikeButton";
 
 export default function ProductListItem({ product }) {
   return `
-  <div class="product-card" href="/product?id=${product.id}">
+  <a class="product-card" href="/product?id=${product.id}">
     <img src="${product.image}" alt="${
     product.title
   } image" class="product-image">
@@ -16,6 +16,6 @@ export default function ProductListItem({ product }) {
         <p class="name">${product.title}</p>
         <p class="price">$${product.price}</p>
     </div>
-  </div>
+  </a>
   `;
 }
