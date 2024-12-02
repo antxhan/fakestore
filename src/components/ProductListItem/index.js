@@ -12,8 +12,6 @@ export default function ProductListItem({ product }) {
         </div>
         <div class="right-info">
             <button class="like-btn"><span>&#x2764;</span></button>
-            <p><br></p>
-            <p class="stock">12 items left!</p>
         </div>
     </div>
   </a>

@@ -12,11 +12,14 @@
   padding: 10px;
   text-align: left;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
 }
 
 .product-image {
-  width: 100%;
-  border-radius: 5px;
+  aspect-ratio: 1;
+  max-width: 100%;
+  /* max-height: 5rem; */
+  object-fit: cover;
   margin-bottom: 10px;
 }
 
