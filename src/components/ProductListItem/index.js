@@ -2,7 +2,7 @@ import "./index.css";
 
 export default function ProductListItem({ product }) {
   return `
-  <div class="product-card">
+  <a class="product-card" href="/product?id=${product.id}">
     <img src="${product.image}" alt="${product.title} image" class="product-image">
     <div class="product-info">
         <div class="left-info">
@@ -16,6 +16,6 @@ export default function ProductListItem({ product }) {
             <p class="stock">12 items left!</p>
         </div>
     </div>
-  </div>
+  </a>
   `;
 }
