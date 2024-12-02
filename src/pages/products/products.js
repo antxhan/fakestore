@@ -41,7 +41,8 @@ export function render(callback) {
       likeButtons.forEach((button) => {
         button.addEventListener("click", (e) => {
           e.preventDefault();
-          // TODO: add to db likes
+
+          // add/remove from likes in db
           const productId =
             e.target.parentNode.parentNode.parentNode.parentNode.href.split(
               "id="
