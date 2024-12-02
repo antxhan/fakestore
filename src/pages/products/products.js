@@ -1,4 +1,6 @@
-import { api } from "../utils/api";
+import { api } from "../../utils/api";
+import PriceFilter from "../../components/PriceFilter/PriceFilter";
+import CategoriesFilter from "../../components/CategoriesFilter/CategoriesFilter";
 
 const PRODUCTS_PER_PAGE = 20;
 
@@ -6,6 +8,8 @@ function createHTML(productList) {
   return `
     <h1>Products</h1>
     <ul>${productList}</ul>
+    ${PriceFilter()}
+    ${CategoriesFilter()}
     `;
 }
 

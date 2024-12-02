@@ -66,7 +66,7 @@ function reloadPage(html) {
 }
 
 function loadPage(page) {
-  import(`./pages/${page}.js`)
+  import(`./pages/${page}/${page}.js`)
     .then(async (module) => {
       document.querySelector("#app").innerHTML = await module.render(
         reloadPage
@@ -74,7 +74,7 @@ function loadPage(page) {
     })
     .catch((err) => {
       console.log(err);
-      import("./pages/404.js").then((module) => {
+      import("./pages/404/404.js").then((module) => {
         document.querySelector("#app").innerHTML = module.render(reloadPage);
       });
     });
