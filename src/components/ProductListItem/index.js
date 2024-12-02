@@ -1,19 +1,21 @@
 import "./index.css";
+import { toCapitalize } from "../../utils/utils";
+import LikeButton from "../LikeButton";
 
 export default function ProductListItem({ product }) {
   return `
-  <a class="product-card" href="/product?id=${product.id}">
-    <img src="${product.image}" alt="${product.title} image" class="product-image">
+  <div class="product-card" href="/product?id=${product.id}">
+    <img src="${product.image}" alt="${
+    product.title
+  } image" class="product-image">
     <div class="product-info">
-        <div class="left-info">
-            <p class="brand">${product.category}</p>
-            <p class="name">${product.title}</p>
-            <p class="price">$${product.price}</p>
+        <div>
+            <p class="category">${toCapitalize(product.category)}</p>
+            ${LikeButton()}
         </div>
-        <div class="right-info">
-            <button class="like-btn"><span>&#x2764;</span></button>
-        </div>
+        <p class="name">${product.title}</p>
+        <p class="price">$${product.price}</p>
     </div>
-  </a>
+  </div>
   `;
 }
