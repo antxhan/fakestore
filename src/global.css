@@ -21,6 +21,10 @@ body {
   font-family: var(--ff-sans);
 }
 
+main {
+  padding: 1rem;
+}
+
 footer {
   .media_payment {
     display: flex;
