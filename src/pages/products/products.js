@@ -10,7 +10,6 @@ const PRODUCTS_PER_PAGE = 20;
 
 function createHTML(productList) {
   return `
-    <h1>Products</h1>
     <main>
       <section class="product-grid">
       ${productList}
@@ -42,6 +41,7 @@ export function render(callback) {
         button.addEventListener("click", (e) => {
           e.preventDefault();
           // TODO: add to db likes
+          // TODO: hover effect
           button.classList.toggle("liked");
           button.innerHTML = `<img src="${
             button.classList.contains("liked")
