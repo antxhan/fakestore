@@ -4,7 +4,6 @@ import minusIcon from "/src/assets/icons/minus.svg";
 import xIcon from "/src/assets/icons/x.svg";
 
 export default function CartItem(product) {
-  product.quantity = 1;
   return `
   <li>
       <img src="${product.image}" alt="${product.title}">

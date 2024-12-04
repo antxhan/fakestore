@@ -2,9 +2,12 @@ import "./cart.css";
 import CartItem from "../../components/CartItem";
 import { api } from "../../utils/api";
 
-export async function render(callback) {
-  const product = await api.product(1);
-  return `
+function sumTotal(cartItems) {
+  return cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
+}
+
+function createHTML(cartItems) {
+  const html = `
   <div class="container cart-container">
     <section class="cart-list">
       <div>
@@ -12,8 +15,11 @@ export async function render(callback) {
       </div>
       <div>
         <ul>
-          ${CartItem(product)}
-          ${CartItem(product)}
+        ${
+          cartItems.length === 0
+            ? "No items in cart"
+            : cartItems.map(CartItem).join("")
+        }
         </ul>
       </div>
     </section>
@@ -23,7 +29,11 @@ export async function render(callback) {
         <ul>
           <li>
             <p>Subtotal</p>
-            <p>$100</p>
+            <p>${
+              cartItems.length === 0
+                ? "N/A"
+                : `$${sumTotal(cartItems).toFixed(2)}`
+            }</p>
           </li>
         </ul>
         <button>Checkout</button>
@@ -31,4 +41,25 @@ export async function render(callback) {
     </section>
   </div>
   `;
+  return html;
+}
+
+export async function render(callback) {
+  // example of cart item, key: id, value: quantity
+  const cartItems = {
+    1: 3,
+    2: 2,
+  };
+
+  // get all products from api
+  let products = Object.entries(cartItems).map(async ([id, quantity]) => {
+    const product = await api.product(id);
+    product.quantity = quantity;
+    return product;
+  });
+  products = await Promise.all(products);
+
+  const skeletonHTML = createHTML(products);
+  if (callback) callback(skeletonHTML);
+  return skeletonHTML;
 }
