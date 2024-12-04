@@ -6,6 +6,7 @@
   --clr-neutral-600: #666;
   --clr-neutral-900: #000;
 
+  --clr-primary: #43c3d1;
   --clr-primary-500: #007bff;
 
   /* FONT FAMILIES */
@@ -38,6 +39,7 @@ body {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+  align-items: center;
 }
 
 main {
@@ -63,6 +65,10 @@ main {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
+}
+
+button {
+  cursor: pointer;
 }
 
 .logo {

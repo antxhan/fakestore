@@ -1,0 +1,112 @@
+.cart-container {
+  --cart-gap: 0.75rem;
+  display: flex;
+  gap: var(--cart-gap);
+  background-color: var(--clr-neutral-100);
+  padding: var(--cart-gap);
+  flex-grow: 1;
+}
+
+.cart-list,
+.cart-checkout {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: var(--cart-gap);
+  background-color: var(--clr-neutral-100);
+  & > div {
+    padding: 1rem;
+    background-color: var(--clr-neutral-000);
+    width: 100%;
+    border-radius: 1rem;
+    ul {
+      list-style: none;
+    }
+  }
+}
+
+.cart-list {
+  li {
+    display: flex;
+    width: 100%;
+    gap: 1rem;
+    img {
+      max-width: 100px;
+      aspect-ratio: 1;
+      object-fit: contain;
+    }
+    & > div {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+  }
+  .cart-item-top-row {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+  }
+  .cart-item-bottom-row {
+    display: flex;
+    gap: 1rem;
+  }
+  .cart-item-title {
+    color: var(--clr-neutral-600);
+  }
+  .cart-item-quantity {
+    display: flex;
+    gap: 0.25rem;
+    align-items: center;
+    button {
+      width: 1.5rem;
+      font-size: var(--fs-normal);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      border: none;
+    }
+  }
+  .cart-item-save-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 100vw;
+    border: none;
+    img {
+      width: 1.5rem;
+    }
+  }
+}
+
+.cart-checkout {
+  max-width: 300px;
+  max-height: max-content;
+  div > * {
+    border-bottom: 1px solid var(--clr-neutral-200);
+    padding-bottom: var(--cart-gap);
+  }
+  div {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--cart-gap);
+  }
+  li {
+    display: flex;
+    justify-content: space-between;
+    p:first-child {
+      font-weight: bold;
+    }
+  }
+  button {
+    width: 100%;
+    padding: 1rem 1rem;
+    font-size: var(--fs-normal);
+    font-weight: bold;
+    border: none;
+    border-radius: 100vw;
+    background-color: var(--clr-primary);
+    color: var(--clr-neutral-000);
+  }
+}
