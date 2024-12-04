@@ -13,6 +13,7 @@ export async function render(callback) {
       <div>
         <ul>
           ${CartItem(product)}
+          ${CartItem(product)}
         </ul>
       </div>
     </section>
