@@ -1,11 +1,11 @@
-import HeartIconOutline from "/src/assets/icons/heart-outline.svg";
+// import HeartIconOutline from "/src/assets/icons/heart-outline.svg";
 import plusIcon from "/src/assets/icons/plus.svg";
 import minusIcon from "/src/assets/icons/minus.svg";
 import xIcon from "/src/assets/icons/x.svg";
 
 export default function CartItem(product) {
   return `
-  <li>
+  <a href="/product?id=${product.id}">
       <img src="${product.image}" alt="${product.title}">
       <div>
         <div class="cart-item-top-row">
@@ -17,17 +17,17 @@ export default function CartItem(product) {
         <p class="cart-item-title">${product.title}</p>
         <div class="cart-item-bottom-row">
           <div class="cart-item-quantity">
-            <button>
+            <button value="-">
               <img src="${minusIcon}" alt="Decrement">
             </button>
             <p>${product.quantity}</p>
-            <button>
+            <button value="+">
               <img src="${plusIcon}" alt="Increment">
             </button>
           </div>
         </div>
       </div>
-  </li>
+  </a>
   `;
 }
 

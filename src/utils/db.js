@@ -1,8 +1,8 @@
 export const db = {
-  get cart() {
-    return JSON.parse(localStorage.getItem("cart") || []);
+  getCart() {
+    return JSON.parse(localStorage.getItem("cart") || "{}");
   },
-  set cart(value) {
+  setCart(value) {
     localStorage.setItem("cart", JSON.stringify(value));
   },
   getLikes() {
