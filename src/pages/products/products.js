@@ -37,6 +37,65 @@ export function render(callback) {
       const html = createHTML(productList);
       if (callback) callback(html);
 
+      // Price filter
+      const toggleButton = document.querySelector("#toggleButton");
+      const wrapper = document.querySelector(".wrapper");
+
+      if (toggleButton && wrapper) {
+        toggleButton.innerHTML = `Price <span id="arrow">▼</span>`;
+        const arrow = document.querySelector("#arrow");
+
+        toggleButton.addEventListener("click", () => {
+          const isHidden = wrapper.style.display === "none";
+          wrapper.style.display = isHidden ? "block" : "none";
+
+          arrow.style.transform = isHidden ? "rotate(180deg)" : "rotate(0deg)";
+        });
+      }
+
+      const rangeInput = document.querySelectorAll(".range-input input"),
+        priceInput = document.querySelectorAll(".price-input input"),
+        range = document.querySelector(".slider .progress");
+      let priceGap = 1000;
+      priceInput.forEach((input) => {
+        input.addEventListener("input", (e) => {
+          let minPrice = parseInt(priceInput[0].value),
+            maxPrice = parseInt(priceInput[1].value);
+
+          if (
+            maxPrice - minPrice >= priceGap &&
+            maxPrice <= rangeInput[1].max
+          ) {
+            if (e.target.className === "input-min") {
+              rangeInput[0].value = minPrice;
+              range.style.left = (minPrice / rangeInput[0].max) * 100 + "%";
+            } else {
+              rangeInput[1].value = maxPrice;
+              range.style.right =
+                100 - (maxPrice / rangeInput[1].max) * 100 + "%";
+            }
+          }
+        });
+      });
+      rangeInput.forEach((input) => {
+        input.addEventListener("input", (e) => {
+          let minVal = parseInt(rangeInput[0].value),
+            maxVal = parseInt(rangeInput[1].value);
+          if (maxVal - minVal < priceGap) {
+            if (e.target.className === "range-min") {
+              rangeInput[0].value = maxVal - priceGap;
+            } else {
+              rangeInput[1].value = minVal + priceGap;
+            }
+          } else {
+            priceInput[0].value = minVal;
+            priceInput[1].value = maxVal;
+            range.style.left = (minVal / rangeInput[0].max) * 100 + "%";
+            range.style.right = 100 - (maxVal / rangeInput[1].max) * 100 + "%";
+          }
+        });
+      });
+
       const likeButtons = document.querySelectorAll(".like-btn");
       likeButtons.forEach((button) => {
         button.addEventListener("click", (e) => {
