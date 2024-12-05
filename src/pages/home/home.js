@@ -15,6 +15,11 @@ function createHTML(productList) {
   return `
   <div class="home-container container">
     <section class="home-hero">
+      <p class="home-hero-title">Fake it <br/> 'til you <br/> Make it</p>
+      <div class="home-hero-description">
+        <p class="home-hero-subtitle">Don't be yourself</p>
+        <a href="/products">Shop Now</a>
+      </div>
       <img src="${heroImage}" alt="placeholder image">
     </section>
     <section class="home-categories">
