@@ -5,8 +5,11 @@ import hanger1 from "../../assets/icons/hanger-1.svg";
 import hanger2 from "../../assets/icons/hanger-2.svg";
 import jewelery from "../../assets/icons/jewelery.svg";
 import electronics from "../../assets/icons/electronics.svg";
+import heartFilledIcon from "../../assets/icons/heart-filled.svg";
+import heartOutlineIcon from "../../assets/icons/heart-outline.svg";
 import { api } from "../../utils/api";
 import ProductListItem from "../../components/ProductListItem";
+import { db } from "../../utils/db";
 
 function createHTML(productList) {
   return `
@@ -48,6 +51,34 @@ function createHTML(productList) {
   `;
 }
 
+function handleLikeButtons() {
+  const likeButtons = document.querySelectorAll(".like-btn");
+  likeButtons.forEach((button) => {
+    button.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      // add/remove from likes in db
+      const productId =
+        e.target.parentNode.parentNode.parentNode.parentNode.href.split(
+          "id="
+        )[1];
+      db.setLikes(productId);
+
+      // set class and icon
+      button.classList.toggle("liked");
+      button.innerHTML = `<img src="${
+        button.classList.contains("liked")
+          ? `${heartFilledIcon}`
+          : `${heartOutlineIcon}`
+      }" draggable="false" alt="Like">`;
+    });
+  });
+}
+
+function addEventListeners() {
+  handleLikeButtons();
+}
+
 function getProducts(callback) {
   // asynchronously getting products, then updating the DOM
   api
@@ -61,7 +92,7 @@ function getProducts(callback) {
       const html = createHTML(productList);
       if (callback) callback(html);
 
-      // addEventListeners();
+      addEventListeners();
     })
     .catch((error) => {
       console.error("Error fetching products:", error);
