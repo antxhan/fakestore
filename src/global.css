@@ -1,6 +1,7 @@
 :root {
   /* COLORS */
   --clr-neutral-000: #fff;
+  --clr-neutral-050: rgb(247, 247, 247);
   --clr-neutral-100: rgb(236, 236, 236);
   --clr-neutral-200: #ddd;
   --clr-neutral-600: #666;
