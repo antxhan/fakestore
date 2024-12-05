@@ -15,6 +15,7 @@
   aspect-ratio: 16/9;
 
   img {
+    aspect-ratio: 16/9;
     display: flex;
     border-radius: inherit;
     width: 100%;

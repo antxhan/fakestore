@@ -1,5 +1,5 @@
 import "./home.css";
-import placeholderImage from "../../assets/img/placeholder.png";
+// import placeholderImage from "../../assets/img/placeholder.png";
 import heroImage from "../../assets/img/hero.png";
 import hanger1 from "../../assets/icons/hanger-1.svg";
 import hanger2 from "../../assets/icons/hanger-2.svg";
