@@ -2,10 +2,7 @@ import { db } from "../../utils/db";
 import { api } from "../../utils/api";
 import "./cart.css";
 import CartItem from "../../components/CartItem";
-
-function sumTotal(cartItems) {
-  return cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
-}
+import { sumTotal } from "../../utils/utils";
 
 function createHTML(cartItems, total) {
   return `
