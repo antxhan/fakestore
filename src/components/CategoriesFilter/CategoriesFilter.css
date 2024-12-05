@@ -1,0 +1,43 @@
+.categories-filter {
+    width: 350px;
+    border-radius: 10px;
+    background-color: #fff;
+    padding: 20px;
+  }
+  
+  .filter-title {
+    font-size: 25px;
+    font-weight: bold;
+    color: black;
+    margin-bottom: 15px;
+  }
+  
+  .filter-options {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 10px; 
+  }
+  
+  .filter-btn {
+    padding: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+    border: 1px solid #ccc; 
+    border-radius: 5px;
+    background-color: #fff;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.3s ease; 
+    flex: 1 1 45%;
+  }
+  
+  .filter-btn:hover {
+    border-color: #007bff;
+  }
+  
+  .filter-btn:focus {
+    border-color: #007bff;
+    outline: none; 
+  }
+  
