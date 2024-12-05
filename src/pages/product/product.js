@@ -1,9 +1,10 @@
 import "./product.css";
+import productImage from "./Images/coat.png";
 export function render() {
   return `
     <div class="product-container">
         <div class="product-image">
-            <img src="./pages/product/Images/coat.png" alt="Faux Leather Coat">
+           <img src="${productImage}" alt="Faux Leather Coat">
         </div>
         <div class="product-info">
             <div class="product-details">
@@ -50,3 +51,4 @@ export function render() {
     </div>
   `;
 }
+
