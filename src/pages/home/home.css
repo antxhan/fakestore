@@ -25,13 +25,10 @@
 }
 
 .home-hero-title {
-  font-size: clamp(3rem, 11vw, 15rem);
-  /* letter-spacing: -10px; */
-  /* color: var(--clr-neutral-000); */
+  font-size: clamp(5rem, 11vw, 12.5rem);
   font-weight: bold;
   position: absolute;
   line-height: 1;
-  /* top: 3rem; */
   top: 50%;
   transform: translateY(-50%);
   mix-blend-mode: color-dodge;
