@@ -29,4 +29,8 @@ export const api = {
     const endpoint = `products/${id}`;
     return this._request(endpoint);
   },
+  category(category) {
+    const endpoint = `products/category/${category}`;
+    return this._request(endpoint);
+  },
 };

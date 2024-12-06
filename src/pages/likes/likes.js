@@ -2,11 +2,12 @@ import { db } from "../../utils/db";
 import { api } from "../../utils/api";
 import "./likes.css";
 import ProductListItem from "../../components/ProductListItem";
+import Breadcrumbs from "../../components/Breadcrumbs";
 
 function createHTML(productList) {
   return `
-    <main>
-        <h1>Likes</h1>
+  ${Breadcrumbs("Likes")}
+    <main class="container">
         <section class="product-grid">
         ${productList}
         </section>

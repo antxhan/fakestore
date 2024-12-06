@@ -1,6 +1,30 @@
+.products-container {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  align-items: start;
+  padding: 0;
+}
+
+.product-filters-wrapper {
+  background-color: var(--clr-neutral-050);
+  border-radius: 0.5rem;
+  h2 {
+    font-size: var(--fs-normal);
+    padding: 1rem;
+  }
+}
+
+.product-filters {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  & > div {
+  }
+}
+
 .product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(235px, 1fr));
   gap: 1rem;
-  width: min(100%, 1000px);
 }

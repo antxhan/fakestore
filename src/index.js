@@ -1,4 +1,3 @@
-import "./likeButton";
 import "./global.css";
 
 document.addEventListener("DOMContentLoaded", async () => {
