@@ -1,0 +1,13 @@
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-block: 1rem;
+  a {
+    text-decoration: none;
+    color: var(--clr-primary);
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
