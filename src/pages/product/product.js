@@ -3,11 +3,13 @@ import { api } from "../../utils/api";
 import { db } from "../../utils/db";
 import heartOutline from "../../assets/icons/heart-outline.svg";
 import heartFilled from "../../assets/icons/heart-filled.svg";
+import Breadcrumbs from "../../components/Breadcrumbs";
 
 function createHTML(product) {
-  console.log(product.category);
+  // console.log(product.title);
   const loadingMessage = "Loading...";
   return `
+  ${Breadcrumbs(product.title || loadingMessage)}
   <div class="product-container container">
       <div class="product-image">
          <img src="${product.image || loadingMessage}" alt="${

@@ -6,11 +6,13 @@ import "./products.css";
 import ProductListItem from "../../components/ProductListItem";
 import heartFilledIcon from "../../assets/icons/heart-filled.svg";
 import heartOutlineIcon from "../../assets/icons/heart-outline.svg";
+import Breadcrumbs from "../../components/Breadcrumbs";
 
 const PRODUCTS_PER_PAGE = 20;
 
 function createHTML(productList) {
   return `
+  ${Breadcrumbs("Products")}
     <main class="products-container container">
       <aside class="product-filters-wrapper">
       <h2>Filter</h2>
