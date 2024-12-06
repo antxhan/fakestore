@@ -111,7 +111,7 @@ main {
   height: 24px;
 }
 
-.cart-count,
+/*.cart-count,
 .wishlist-count {
   position: absolute;
   top: -10px;
@@ -121,7 +121,7 @@ main {
   border-radius: 50%;
   padding: 2px 5px;
   font-size: 12px;
-}
+}*/
 
 .language span {
   margin-left: 5px;
