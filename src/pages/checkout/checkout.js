@@ -20,12 +20,12 @@ function createHTML() {
                 <input type="email" id="email" name="email" required>
             </div>
             <div class="form-group">
-                <label for="postal-code">Postal Code</label>
-                <input type="text" id="postal-code" name="postal-code" required>
-            </div>
-            <div class="form-group">
                 <label for="personal-number">Personal Number (optional)</label>
                 <input type="text" id="personal-number" name="personal-number">
+            </div>
+            <div class="form-group">
+                <label for="postal-code">Postal Code</label>
+                <input type="text" id="postal-code" name="postal-code" required>
             </div>
             <div class="form-group">
                 <label for="address">Address</label>
@@ -52,9 +52,13 @@ function createHTML() {
                 <label for="sname-on-card">Name on Card</label>
                 <input type="text" id="name-on-card" name="name-on-card" required>
             </div>
+            <div class="form-group">
+                <label for="expiration-date">Expiration Date</label>
+                <input type="tel" id="expiration-date" name="expiration-date" required>
+            </div>
             <div class="form-actions">
                 <button type="button" id="cancel">Cancel</button>
-                <button type="submit" id="continue">Continue</button>
+                <button type="submit" id="complete-purchase">Complete Purchase</button>
             </div>
         </form>
     `;
