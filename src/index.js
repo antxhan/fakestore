@@ -1,5 +1,14 @@
 import "./global.css";
 
+function addSearchListener() {
+  const searchBar = document.querySelector(".search-bar");
+  const searchBarInput = searchBar.querySelector("input");
+  searchBar.addEventListener("submit", (e) => {
+    e.preventDefault();
+    window.location.href = `/products?q=${searchBarInput.value}`;
+  });
+}
+
 document.addEventListener("DOMContentLoaded", async () => {
   const countryList = document.getElementById("country-list");
   const selectedCountry = document.querySelector(".selected-country");
@@ -77,6 +86,8 @@ function loadPage(page) {
       });
     });
 }
+
+addSearchListener();
 
 window.addEventListener("popstate", router);
 document.addEventListener("DOMContentLoaded", () => {
