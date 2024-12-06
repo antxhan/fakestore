@@ -5,6 +5,7 @@ import heartOutline from "../../assets/icons/heart-outline.svg";
 import heartFilled from "../../assets/icons/heart-filled.svg";
 
 function createHTML(product) {
+  console.log(product.category);
   const loadingMessage = "Loading...";
   return `
   <div class="product-container container">
@@ -26,7 +27,10 @@ function createHTML(product) {
               </div>
               <hr>
               <div class="product-selection">
-                  <div class="size-selection">
+                  ${
+                    product.category === "men's clothing" ||
+                    product.category === "women's clothing"
+                      ? `<div class="size-selection">
                       <p class="selection-title">Size: <strong>M</strong></p>
                       <div class="size-options">
                           <button class="size-button">XS</button>
@@ -35,7 +39,9 @@ function createHTML(product) {
                           <button class="size-button">L</button>
                           <button class="size-button selected">XL</button>
                       </div>
-                  </div>
+                  </div>`
+                      : ""
+                  }
                   <div class="quantity-selection">
                       <p class="selection-title">Qty</p>
                       <div class="quantity-controls">
