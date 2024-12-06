@@ -37,6 +37,10 @@ body {
   gap: 1rem;
 }
 
+button {
+  background-color: white;
+}
+
 #app {
   display: flex;
   flex-direction: column;
