@@ -55,7 +55,7 @@ function createHTML(product) {
               </div>
               <div class="add-to-bag-container">
                   <button class="add-to-bag-button">Add to cart</button>
-                  <div class="heart-icon">
+                  <div class="heart-icon ${product.liked ? "liked" : ""}">
                       <img src="${
                         product.liked ? heartFilled : heartOutline
                       }" alt="${
@@ -117,15 +117,18 @@ function handleAddToCart(productId) {
     
     likeButton.addEventListener('click', (e) => {
       e.preventDefault();
+      console.log(likeButton);
       
      
-      likeButton.classList.toggle('liked');
+      // likeButton.classList.toggle('liked');
       
       const heartImg = likeButton.querySelector('img');
       if (likeButton.classList.contains('liked')) {
-        heartImg.src = heartFilled;
-      } else {
+        likeButton.classList.remove('liked')
         heartImg.src = heartOutline;
+      } else {
+        likeButton.classList.add('liked')
+        heartImg.src = heartFilled;
       }
       
       db.setLikes(productId);
