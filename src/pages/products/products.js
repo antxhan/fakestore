@@ -1,6 +1,6 @@
 import { db } from "../../utils/db";
 import PriceFilter from "../../components/PriceFilter/PriceFilter";
-import CategoriesFilter from "../../components/CategoriesFilter/CategoriesFilter";
+import CategoriesFilter from "../../components/CategoriesFilter/CategoriesFilter.js";
 import "./products.css";
 import ProductListItem from "../../components/ProductListItem";
 import heartFilledIcon from "../../assets/icons/heart-filled.svg";
@@ -111,21 +111,40 @@ function handlePriceFilter() {
 }
 
 function handleCategoriesFilter() {
-  // Step 1: Attach an event listener to detect when a user clicks on a category.
-  // This ensures the function runs every time a category is selected.
-  // ---------
-  // Step 2: When a category is clicked, retrieve its value (e.g., "men's clothing")
-  // ---------
-  // Step 3: Update the browser to navigate to the appropriate URL for the selected category.
-  // Construct the URL with the format: /products?category=<categoryValue>.
-  // Example: Clicking "Men's Clothing" should take the user to /products?category=men's clothing.
+  // Retrieve all category buttons (assuming they have a common class name "filter-btn")
+  const categoryButtons = document.querySelectorAll(".filter-btn");
+
+  // Loop through the buttons and add click event listeners
+  categoryButtons.forEach((button) => {
+    button.addEventListener("click", (e) => {
+      e.preventDefault(); // Prevent the default link behavior
+
+      // Get the category value of the button
+      const categoryValue = e.target.value;
+
+      // Update the browser's URL
+      if (categoryValue) {
+        const newUrl = `/products?category=${encodeURIComponent(categoryValue)}`;
+        window.location.href = newUrl;
+      }
+    });
+  });
 }
 
 function highlightSelectedCategory(category) {
-  // Step 1: Find the category button that matches the provided category parameter.
-  // Try a selector search for the button with a value that equals the category parameter.
-  // ---------
-  // Step 2: Add the `.selected` class to the button to visually highlight it.
+  // Get all category buttons
+  const categoryButtons = document.querySelectorAll(".filter-btn");
+
+  // Loop through the buttons to find the one that matches the 'category' parameter
+  categoryButtons.forEach((button) => {
+    if (button.value === category) {
+      // Add the .selected class to highlight the button
+      button.classList.add("selected");
+    } else {
+      // Ensure other buttons are not highlighted
+      button.classList.remove("selected");
+    }
+  });
 }
 
 function addEventListeners() {
@@ -196,5 +215,6 @@ export function render(callback) {
   } else {
     getProducts(callback);
   }
+  
   return skeletonHTML;
 }
