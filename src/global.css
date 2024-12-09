@@ -87,10 +87,25 @@ button {
 }
 
 .logo-text {
-  font-size: 24px;
+  font-size: 26px;
   font-weight: bold;
   margin-left: 10px;
   color: #43c3d1;
+}
+
+.logo-button {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+}
+
+.logo-button:hover {
+  background-color: rgb(240, 240, 240);
 }
 
 .search-bar {

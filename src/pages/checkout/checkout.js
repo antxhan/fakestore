@@ -85,7 +85,7 @@ export function render(callback) {
  
 document.getElementById('delivery-form').addEventListener('submit', function(event) {
   event.preventDefault();
-  alert('Form submitted!');
+  alert('Thank you for your purchase!');
 
     window.location.href = "/"
 
