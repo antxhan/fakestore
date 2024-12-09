@@ -146,6 +146,14 @@
     color: var(--clr-neutral-600);
     cursor: not-allowed;
   }
+
+  button:hover {
+    background-color: #72d6e1;
+  }
+
+  button:active {
+    background-color: #3db3c3;
+  }
 }
 
 @media (max-width: 680px) {
