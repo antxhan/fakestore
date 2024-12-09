@@ -30,7 +30,9 @@ function createHTML(cartItems, total) {
             <p>${total}</p>
           </li>
         </ul>
-        <button ${total === "N/A" ? "disabled" : ""}>Checkout</button>
+        <button ${
+          total === "N/A" || total === "Loading..." ? "disabled" : ""
+        } class="checkout-btn">Checkout</button>
       </div>
     </section>
   </div>
@@ -127,6 +129,16 @@ export async function render(callback) {
             db.setCart(currentCart);
             return render(callback);
           });
+        });
+
+        const checkoutButton = document.querySelector(".checkout-btn");
+        checkoutButton.addEventListener("click", (e) => {
+          e.preventDefault();
+          if (checkoutButton.disabled === "true") {
+            return;
+          } else {
+            window.location.href = "/checkout";
+          }
         });
       })
       .catch((error) => {

@@ -30,21 +30,6 @@ function createHTML(product) {
               </div>
               <hr>
               <div class="product-selection">
-                  ${
-                    product.category === "men's clothing" ||
-                    product.category === "women's clothing"
-                      ? `<div class="size-selection">
-                      <p class="selection-title">Size: <strong>M</strong></p>
-                      <div class="size-options">
-                          <button class="size-button">XS</button>
-                          <button class="size-button">S</button>
-                          <button class="size-button">M</button>
-                          <button class="size-button">L</button>
-                          <button class="size-button selected">XL</button>
-                      </div>
-                  </div>`
-                      : ""
-                  }
                   <div class="quantity-selection">
                       <p class="selection-title">Qty</p>
                       <div class="quantity-controls">
@@ -91,51 +76,49 @@ function handleQuantityButtons() {
 }
 
 function handleAddToCart(productId) {
-  const addButton = document.querySelector(".add-to-bag-button")
+  const addButton = document.querySelector(".add-to-bag-button");
   addButton.addEventListener("click", (e) => {
     e.preventDefault();
-    const currentCart = db.getCart(); 
-    console.log(currentCart)
+    const currentCart = db.getCart();
+    console.log(currentCart);
 
-    const quantity = parseInt(document.querySelector(".qty-number").textContent)
-    console.log(quantity)
-
+    const quantity = parseInt(
+      document.querySelector(".qty-number").textContent
+    );
+    console.log(quantity);
 
     if (currentCart[productId]) {
       // const prevQuantity = parseInt(currentCart[productId])
-      currentCart[productId] += quantity
+      currentCart[productId] += quantity;
     } else {
       currentCart[productId] = quantity;
     }
-  
-    db.setCart(currentCart); 
+
+    db.setCart(currentCart);
   });
-    
-  }  
+}
 
-  function handleLike(productId) {
-    const likeButton = document.querySelector('.heart-icon');
-    
-    likeButton.addEventListener('click', (e) => {
-      e.preventDefault();
-      console.log(likeButton);
-      
-     
-      // likeButton.classList.toggle('liked');
-      
-      const heartImg = likeButton.querySelector('img');
-      if (likeButton.classList.contains('liked')) {
-        likeButton.classList.remove('liked')
-        heartImg.src = heartOutline;
-      } else {
-        likeButton.classList.add('liked')
-        heartImg.src = heartFilled;
-      }
-      
-      db.setLikes(productId);
-    });
-  }
+function handleLike(productId) {
+  const likeButton = document.querySelector(".heart-icon");
 
+  likeButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    console.log(likeButton);
+
+    // likeButton.classList.toggle('liked');
+
+    const heartImg = likeButton.querySelector("img");
+    if (likeButton.classList.contains("liked")) {
+      likeButton.classList.remove("liked");
+      heartImg.src = heartOutline;
+    } else {
+      likeButton.classList.add("liked");
+      heartImg.src = heartFilled;
+    }
+
+    db.setLikes(productId);
+  });
+}
 
 export async function render(callback) {
   // create a skeleton HTML to show while product is loading

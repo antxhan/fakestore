@@ -153,14 +153,36 @@ function addEventListeners() {
   handleCategoriesFilter();
 }
 
-function getProducts(callback) {
+function getProducts(callback, q = "") {
   // asynchronously getting products, then updating the DOM
   api
     .products(PRODUCTS_PER_PAGE)
     .then((products) => {
-      const productList = products
-        .map((product) => ProductListItem({ product }))
-        .join("");
+      let searchProducts;
+      if (q) {
+        searchProducts = products.filter((product) => {
+          // console.log(product.title.toLowerCase());
+          return product.title.toLowerCase().includes(q.toLowerCase());
+        });
+      }
+      if (q && searchProducts.length === 0) {
+        searchProducts = products.filter((product) => {
+          // console.log(product.description.toLowerCase());
+          return product.description.toLowerCase().includes(q.toLowerCase());
+        });
+      }
+      if (q) {
+        products = searchProducts;
+      }
+
+      let productList;
+      if (products.length === 0) {
+        productList = "No items found";
+      } else {
+        productList = products
+          .map((product) => ProductListItem({ product }))
+          .join("");
+      }
 
       // callback to update the DOM
       const html = createHTML(productList);
@@ -210,10 +232,12 @@ export function render(callback) {
   const url = new URL(window.location.href);
   const searchParams = new URLSearchParams(url.search);
   const category = searchParams.get("category");
+  const q = searchParams.get("q");
+  console.log(q);
   if (category) {
     getCategory(callback, category);
   } else {
-    getProducts(callback);
+    getProducts(callback, q);
   }
   
   return skeletonHTML;
