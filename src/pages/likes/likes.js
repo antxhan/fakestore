@@ -1,5 +1,6 @@
 import { db } from "../../utils/db";
-import { api } from "../../utils/api";
+import { createAPI } from "../../utils/api";
+const api = createAPI();
 import "./likes.css";
 import ProductListItem from "../../components/ProductListItem";
 import Breadcrumbs from "../../components/Breadcrumbs";

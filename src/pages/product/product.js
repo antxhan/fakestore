@@ -1,5 +1,6 @@
 import "./product.css";
-import { api } from "../../utils/api";
+import { createAPI } from "../../utils/api";
+const api = createAPI();
 import { db } from "../../utils/db";
 import heartOutline from "../../assets/icons/heart-outline.svg";
 import heartFilled from "../../assets/icons/heart-filled.svg";
@@ -55,7 +56,7 @@ function createHTML(product) {
               </div>
               <div class="add-to-bag-container">
                   <button class="add-to-bag-button">Add to cart</button>
-                  <div class="heart-icon">
+                  <div class="heart-icon ${product.liked ? "liked" : ""}">
                       <img src="${
                         product.liked ? heartFilled : heartOutline
                       }" alt="${
@@ -90,19 +91,51 @@ function handleQuantityButtons() {
 }
 
 function handleAddToCart(productId) {
-  // cart is set up in local storage and looks like this, for example:
-  // {
-  //   1: 3,
-  //   3: 5,
-  // }
-  // the key is the productId and the value is the quantity
-}
+  const addButton = document.querySelector(".add-to-bag-button")
+  addButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    const currentCart = db.getCart(); 
+    console.log(currentCart)
 
-function handleLike(productId) {
-  // likes is set up in local storage and looks like this, for example:
-  // [1, 3, 5]
-  // the value is the productId
-}
+    const quantity = parseInt(document.querySelector(".qty-number").textContent)
+    console.log(quantity)
+
+
+    if (currentCart[productId]) {
+      // const prevQuantity = parseInt(currentCart[productId])
+      currentCart[productId] += quantity
+    } else {
+      currentCart[productId] = quantity;
+    }
+  
+    db.setCart(currentCart); 
+  });
+    
+  }  
+
+  function handleLike(productId) {
+    const likeButton = document.querySelector('.heart-icon');
+    
+    likeButton.addEventListener('click', (e) => {
+      e.preventDefault();
+      console.log(likeButton);
+      
+     
+      // likeButton.classList.toggle('liked');
+      
+      const heartImg = likeButton.querySelector('img');
+      if (likeButton.classList.contains('liked')) {
+        likeButton.classList.remove('liked')
+        heartImg.src = heartOutline;
+      } else {
+        likeButton.classList.add('liked')
+        heartImg.src = heartFilled;
+      }
+      
+      db.setLikes(productId);
+    });
+  }
+
 
 export async function render(callback) {
   // create a skeleton HTML to show while product is loading

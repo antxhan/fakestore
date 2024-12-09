@@ -7,9 +7,11 @@ import jewelery from "../../assets/icons/jewelery.svg";
 import electronics from "../../assets/icons/electronics.svg";
 import heartFilledIcon from "../../assets/icons/heart-filled.svg";
 import heartOutlineIcon from "../../assets/icons/heart-outline.svg";
-import { api } from "../../utils/api";
+
 import ProductListItem from "../../components/ProductListItem";
 import { db } from "../../utils/db";
+import { createAPI } from "../../utils/api";
+const api = createAPI();
 
 function createHTML(productList) {
   return `
