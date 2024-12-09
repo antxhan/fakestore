@@ -490,6 +490,14 @@ footer {
   }
 }
 
+@media (max-width: 750px) {
+  .extra-header {
+    .right-text {
+      display: none;
+    }
+  }
+}
+
 @media (max-width: 600px) {
   .footer_content {
     .container {
