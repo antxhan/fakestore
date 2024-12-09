@@ -1,5 +1,6 @@
 import "./product.css";
-import { api } from "../../utils/api";
+import { createAPI } from "../../utils/api";
+const api = createAPI();
 import { db } from "../../utils/db";
 import heartOutline from "../../assets/icons/heart-outline.svg";
 import heartFilled from "../../assets/icons/heart-filled.svg";
