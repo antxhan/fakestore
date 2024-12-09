@@ -2,10 +2,12 @@ import { db } from "../../utils/db";
 import { api } from "../../utils/api";
 import "./cart.css";
 import CartItem from "../../components/CartItem";
+import Breadcrumbs from "../../components/Breadcrumbs";
 import { sumTotal } from "../../utils/utils";
 
 function createHTML(cartItems, total) {
   return `
+  ${Breadcrumbs("Cart")}
   <div class="container cart-container">
     <section class="cart-list">
       <div>
