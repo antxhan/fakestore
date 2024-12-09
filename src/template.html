@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="global.css" />
   </head>
   <body>
-    <div class="extra-header">
+    <div class="extra-header | container">
       <div class="left-text">
         <div class="ship-to">
           <svg
@@ -95,15 +95,16 @@
         </div>
       </div>
     </div>
-    <div class="sticky-navbar">
+    <div class="sticky-navbar | container">
       <a href="/" class="logo">
         <img src="./assets/letter-f.svg" alt="Fake Store" />
         <span class="logo-text">Fake Store</span>
       </a>
 
-      <div class="search-bar">
+      <form class="search-bar">
+        <img src="/src/assets/icons/search.svg" alt="Search" />
         <input type="text" placeholder="What are you looking for?" />
-      </div>
+      </form>
       <div class="user-info">
         <a href="/cart">
           <div class="cart">
@@ -123,8 +124,10 @@
         </div>
         <div class="user">
           <span class="avatar">V</span>
-          <span>Welcome Back!</span>
-          <span>Visitor</span>
+          <div class="user-greeting-and-name">
+            <p class="user-greeting">Welcome Back!</p>
+            <p class="user-name">Visitor</p>
+          </div>
           <div class="dropdown-content">
             <a href="#">Profile</a>
             <a href="#">Orders</a>
