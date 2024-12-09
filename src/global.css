@@ -37,6 +37,10 @@ body {
   gap: 1rem;
 }
 
+/* button {
+  background-color: white;
+} */
+
 #app {
   display: flex;
   flex-direction: column;
@@ -67,99 +71,168 @@ main {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+
+
+  .logo {
+    text-decoration: none;
+  }
+  
+  .logo img {
+    height: 40px;
+  }
+  
+  .logo-text {
+    font-size: 26px;
+    font-weight: bold;
+    margin-left: 10px;
+    color: #43c3d1;
+    text-decoration: none;
+  }
+  
+  .logo-link {
+    display: inline-block;
+    text-decoration: none; 
+  }
+  
+  .logo-button {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+    
+  
+  .logo-button:hover {
+    background-color: rgb(240, 240, 240);
+  }
+
+  }
+
+.wishlist {
+    margin-left: 20px;
+    margin-right: 5px;
+  }
+
+  .search-bar {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .search-bar input {
+    width: 70%;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    font-size: 16px;
+  }
+  
+  .user-info {
+    display: flex;
+    align-items: center;
+  }
+  
+  .user-info > div {
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+  
+  .user-info img {
+    height: 24px;
+  }
+  
+  /*.cart-count,
+  .wishlist-count {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 5px;
+    font-size: 12px;
+  }*/
+  
+  .language span {
+    margin-left: 5px;
+    font-size: 14px;
+  }
+  
+  .avatar {
+    background-color: #ccc;
+    color: white;
+    border-radius: 50%;
+    padding: 10px;
+    margin-right: 5px;
+    font-size: 14px;
+    text-align: center;
+    line-height: 14px;
+    width: 2rem;
+    height: 2rem;
+  }
+  
+  .user span {
+    margin-left: 5px;
+    font-size: 14px;
+  }
+  
+  .user {
+    position: relative;
+  }
+  
+  .user .dropdown-content {
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+    z-index: 1000;
+  }
+  
+  .user .dropdown-content a {
+    display: block;
+    padding: 10px 20px;
+    color: #2a2a2a;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .user .dropdown-content a:hover {
+    background-color: #f1f1f1;
+    color: #0073e6;
+    /* text-decoration: underline; */
+  }
+  
+  .user:hover .dropdown-content {
+    display: block;
+  }
+  
+  @media (max-width: 768px) {
+    .search-bar input {
+      width: 60%;
+    }
+  
+    .user-info > div {
+      margin-left: 10px;
+    }
+  }
 }
 
 button {
   cursor: pointer;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-}
-
-.logo img {
-  height: 40px;
-}
-
-.logo-text {
-  font-size: 24px;
-  font-weight: bold;
-  margin-left: 10px;
-  color: #43c3d1;
-}
-
-.search-bar {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-}
-
-.search-bar input {
-  width: 70%;
-  padding: 5px 10px;
-  border: 1px solid #ccc;
-  border-radius: 20px;
-  font-size: 16px;
-}
-
-.user-info {
-  display: flex;
-  align-items: center;
-}
-
-.user-info > div {
-  margin-left: 20px;
-  display: flex;
-  align-items: center;
-  position: relative;
-}
-
-.user-info img {
-  height: 24px;
-}
-
-.cart-count,
-.wishlist-count {
-  position: absolute;
-  top: -10px;
-  right: -10px;
-  background-color: red;
-  color: white;
-  border-radius: 50%;
-  padding: 2px 5px;
-  font-size: 12px;
-}
-
-.language span {
-  margin-left: 5px;
-  font-size: 14px;
-}
-
-.avatar {
-  background-color: #ccc;
-  color: white;
-  border-radius: 50%;
-  padding: 10px;
-  margin-right: 5px;
-  font-size: 14px;
-  text-align: center;
-  line-height: 14px;
-}
-
-.user span {
-  margin-left: 5px;
-  font-size: 14px;
-}
-
-@media (max-width: 768px) {
-  .search-bar input {
-    width: 60%;
-  }
-
-  .user-info > div {
-    margin-left: 10px;
-  }
 }
 
 .extra-header {
@@ -175,7 +248,6 @@ button {
   left: 0;
   width: 100%;
   z-index: 1000;
-}
 
 .extra-header .left-text {
   display: flex;
@@ -292,6 +364,8 @@ button {
   margin-top: 10px;
   font-size: 1.2rem;
 }
+}
+
 
 footer {
   display: flex;

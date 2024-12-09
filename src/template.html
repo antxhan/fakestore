@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="global.css" />
   </head>
   <body>
+
     <div class="extra-header">
       <div class="left-text">
         <svg
@@ -94,30 +95,42 @@
       </div>
     </div>
     <div class="sticky-navbar">
-      <div class="logo">
-        <!-- <img src="logo.png" alt="Fake Store"> -->
-        <span class="logo-text">Fake Store</span>
-      </div>
+
+    <a href="/" class="logo">
+            <img src="./assets/letter-f.svg" alt="Fake Store">
+            <span class="logo-text">Fake Store</span>
+    </a>
+
       <div class="search-bar">
         <input type="text" placeholder="What are you looking for?" />
       </div>
-      <div class="user-info">
+        <div class="user-info">
+      <a href="/cart">
         <div class="cart">
-          <!-- <img src="cart-icon.png" alt="Cart"> -->
-          <span class="cart-count">20</span>
+          <img src="./assets/cart-outline.svg" alt="Cart">
+          <span class="cart-count"></span>
         </div>
+      </a>
+      <a href="/likes">
         <div class="wishlist">
-          <!-- <img src="wishlist-icon.png" alt="Wishlist"> -->
-          <span class="wishlist-count">3</span>
+          <img src="./assets/heart-outline.svg" alt="Wishlist">
+          <span class="wishlist-count"></span>
         </div>
+      </a>
         <div class="language">
-          <!-- <img src="ca-flag.png" alt="English"> -->
+          <img src="./assets/canadian flag.png" alt="English">
           <span>English</span>
         </div>
         <div class="user">
           <span class="avatar">V</span>
           <span>Welcome Back!</span>
           <span>Visitor</span>
+          <div class="dropdown-content">
+          <a href="#">Profile</a>
+          <a href="#">Orders</a>
+          <a href="#">Settings</a>
+          <a href="#">Sign Out</a>
+          </div>
         </div>
       </div>
     </div>
@@ -181,6 +194,8 @@
           alt="green"
         />
       </section>
+
+
       <div class="footer_content">
         <div class="container">
           <section>
