@@ -37,9 +37,9 @@ body {
   gap: 1rem;
 }
 
-button {
+/* button {
   background-color: white;
-}
+} */
 
 #app {
   display: flex;
