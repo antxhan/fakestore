@@ -90,15 +90,26 @@ function handleQuantityButtons() {
 }
 
 function handleAddToCart(productId) {
-    const currentCart = db.getCart() || {}; 
+  const addButton = document.querySelector(".add-to-bag-button")
+  addButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    const currentCart = db.getCart(); 
+    console.log(currentCart)
+
+    const quantity = parseInt(document.querySelector(".qty-number").textContent)
+    console.log(quantity)
+
 
     if (currentCart[productId]) {
-      currentCart[productId] += 1;
+      // const prevQuantity = parseInt(currentCart[productId])
+      currentCart[productId] += quantity
     } else {
-      currentCart[productId] = 1;
+      currentCart[productId] = quantity;
     }
   
     db.setCart(currentCart); 
+  });
+    
   }  
 
   function handleLike(productId) {
