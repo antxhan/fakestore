@@ -136,7 +136,7 @@ function highlightSelectedCategory(category) {
 
   // Loop through the buttons to find the one that matches the 'category' parameter
   categoryButtons.forEach((button) => {
-    if (button.dataset.category === category) {
+    if (button.value === category) {
       // Add the .selected class to highlight the button
       button.classList.add("selected");
     } else {
@@ -214,12 +214,6 @@ export function render(callback) {
   } else {
     getProducts(callback);
   }
-
-  //Call the Categories filter and highlight logic
-  handleCategoriesFilter();
-  if (category) {
-    highlightSelectedCategory(category);
-  }
-
+  
   return skeletonHTML;
 }
