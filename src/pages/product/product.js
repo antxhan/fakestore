@@ -82,19 +82,37 @@ function handleQuantityButtons() {
 }
 
 function handleAddToCart(productId) {
-  // cart is set up in local storage and looks like this, for example:
-  // {
-  //   1: 3,
-  //   3: 5,
-  // }
-  // the key is the productId and the value is the quantity
-}
+    const currentCart = db.getCart() || {}; 
 
-function handleLike(productId) {
-  // likes is set up in local storage and looks like this, for example:
-  // [1, 3, 5]
-  // the value is the productId
-}
+    if (currentCart[productId]) {
+      currentCart[productId] += 1;
+    } else {
+      currentCart[productId] = 1;
+    }
+  
+    db.setCart(currentCart); 
+  }  
+
+  function handleLike(productId) {
+    const likeButton = document.querySelector('.heart-icon');
+    
+    likeButton.addEventListener('click', (e) => {
+      e.preventDefault();
+      
+     
+      likeButton.classList.toggle('liked');
+      
+      const heartImg = likeButton.querySelector('img');
+      if (likeButton.classList.contains('liked')) {
+        heartImg.src = heartFilled;
+      } else {
+        heartImg.src = heartOutline;
+      }
+      
+      db.setLikes(productId);
+    });
+  }
+
 
 export async function render(callback) {
   // create a skeleton HTML to show while product is loading
