@@ -1,4 +1,3 @@
-import { api } from "../../utils/api";
 import { db } from "../../utils/db";
 import PriceFilter from "../../components/PriceFilter/PriceFilter";
 import CategoriesFilter from "../../components/CategoriesFilter/CategoriesFilter";
@@ -8,7 +7,9 @@ import heartFilledIcon from "../../assets/icons/heart-filled.svg";
 import heartOutlineIcon from "../../assets/icons/heart-outline.svg";
 import Breadcrumbs from "../../components/Breadcrumbs";
 
+import { createAPI } from "../../utils/api";
 const PRODUCTS_PER_PAGE = 20;
+const api = createAPI();
 
 function createHTML(productList) {
   return `

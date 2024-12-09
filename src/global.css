@@ -435,9 +435,13 @@ footer {
       color: inherit;
     }
 
-    .current_country {
+    .github {
       display: flex;
       align-items: center;
+      margin: 5px 0;
+      img {
+        max-height: 20px;
+      }
     }
   }
 
