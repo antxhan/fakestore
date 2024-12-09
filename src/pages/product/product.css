@@ -150,7 +150,17 @@
     font-size: var(--fs-normal);
     cursor: pointer;
     border-radius: 10px;
+
   }
+
+  .add-to-bag-button:hover {
+    background-color: #72d6e1;
+  }
+
+  .add-to-bag-button:active {
+    background-color: #3db3c3;
+  }
+
 
   .heart-icon {
     width: 2rem;
