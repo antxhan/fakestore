@@ -5,7 +5,7 @@ import xIcon from "/src/assets/icons/x.svg";
 
 export default function CartItem(product) {
   return `
-  <a href="/product?id=${product.id}">
+  <a href="/fakestore/product?id=${product.id}">
       <img src="${product.image}" alt="${product.title}">
       <div>
         <div class="cart-item-top-row">

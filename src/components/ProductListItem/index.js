@@ -6,7 +6,7 @@ import { db } from "../../utils/db";
 export default function ProductListItem({ product }) {
   const isLiked = db.getLikes().includes(product.id.toString());
   return `
-  <a class="product-card" href="/product?id=${product.id}">
+  <a class="product-card" href="/fakestore/product?id=${product.id}">
     <div class="product-image-wrapper">
       <img src="${product.image}" alt="${
     product.title

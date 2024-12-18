@@ -137,7 +137,7 @@ export async function render(callback) {
           if (checkoutButton.disabled === "true") {
             return;
           } else {
-            window.location.href = "/checkout";
+            window.location.href = "/fakestore/checkout";
           }
         });
       })

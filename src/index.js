@@ -5,7 +5,7 @@ function addSearchListener() {
   const searchBarInput = searchBar.querySelector("input");
   searchBar.addEventListener("submit", (e) => {
     e.preventDefault();
-    window.location.href = `/products?q=${searchBarInput.value}`;
+    window.location.href = `/fakestore/products?q=${searchBarInput.value}`;
   });
 }
 
@@ -59,7 +59,7 @@ function router() {
     path = path.slice(GITHUB_BASE_PATH.length);
   }
 
-  if (!path) {
+  if (!path || path === "/" || path === GITHUB_BASE_PATH) {
     path = "/home";
   }
   const page = path.slice(1) || "404";

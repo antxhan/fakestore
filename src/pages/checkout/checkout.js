@@ -65,36 +65,30 @@ function createHTML() {
 }
 
 export function render(callback) {
-  const html = createHTML()
+  const html = createHTML();
 
   setTimeout(() => {
+    // callback to update the DOM
+    if (callback) callback(html);
 
-  // callback to update the DOM
-  if (callback) callback(html);
+    const cancelButton = document.getElementById("cancel");
+    console.log(cancelButton);
+    const deliveryForm = document.querySelector("#delivery-form");
+    console.log(deliveryForm);
+    cancelButton.addEventListener("click", () => {
+      console.log("click");
+      deliveryForm.reset();
+    });
 
+    document
+      .getElementById("delivery-form")
+      .addEventListener("submit", function (event) {
+        event.preventDefault();
+        alert("Thank you for your purchase!");
 
-  const cancelButton = document.getElementById('cancel')
-  console.log(cancelButton)
-  const deliveryForm = document.querySelector('#delivery-form')
-  console.log(deliveryForm)
-  cancelButton.addEventListener('click', () => {
-   console.log("click")
-   deliveryForm.reset();
- });
+        window.location.href = "/fakestore";
+      });
+  }, 1000);
 
- 
-document.getElementById('delivery-form').addEventListener('submit', function(event) {
-  event.preventDefault();
-  alert('Thank you for your purchase!');
-
-    window.location.href = "/"
-
-});
-    
-  }, 1000)
-  
-
-
-  return html
+  return html;
 }
-

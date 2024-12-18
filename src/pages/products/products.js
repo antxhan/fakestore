@@ -124,7 +124,9 @@ function handleCategoriesFilter() {
 
       // Update the browser's URL
       if (categoryValue) {
-        const newUrl = `/products?category=${encodeURIComponent(categoryValue)}`;
+        const newUrl = `/fakestore/products?category=${encodeURIComponent(
+          categoryValue
+        )}`;
         window.location.href = newUrl;
       }
     });
@@ -239,6 +241,6 @@ export function render(callback) {
   } else {
     getProducts(callback, q);
   }
-  
+
   return skeletonHTML;
 }

@@ -20,26 +20,26 @@ function createHTML(productList) {
       <p class="home-hero-title">Fake it <br/> 'til you <br/> Make it</p>
       <div class="home-hero-description">
         <p class="home-hero-subtitle">Don't be yourself</p>
-        <a href="/products">Shop Now</a>
+        <a href="/fakestore/products">Shop Now</a>
       </div>
       <img src="${heroImage}" alt="placeholder image">
     </section>
     <section class="home-categories">
       <h2>Shop by Category</h2>
       <div class="home-categories-grid">
-        <a href="/products?category=men's clothing">
+        <a href="/fakestore/products?category=men's clothing">
           <img src="${hanger1}" alt="Men's clothing">
           <p>Men's Clothing</p>
         </a>
-        <a href="/products?category=women's clothing">
+        <a href="/fakestore/products?category=women's clothing">
           <img src="${hanger2}" alt="Women's clothing">
           <p>Women's Clothing</p>
         </a>
-        <a href="/products?category=jewelery">
+        <a href="/fakestore/products?category=jewelery">
           <img src="${jewelery}" alt="Jewelery">
           <p>Jewelery</p>
         </a>
-        <a href="/products?category=electronics">
+        <a href="/fakestore/products?category=electronics">
           <img src="${electronics}" alt="Electronics">
           <p>Electronics</p>
         </a>
@@ -48,7 +48,7 @@ function createHTML(productList) {
     <section class="home-new-arrivals">
       <div>
         <h2>New Arrivals</h2>
-        <a href="/products">View All</a>
+        <a href="/fakestore/products">View All</a>
       </div>
       <div class="home-product-grid">
         ${productList}
