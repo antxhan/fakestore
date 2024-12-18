@@ -1,6 +1,6 @@
 # Mock E-Commerce Site  
 
-A collaborative project using the [Fake Store API](https://fakestoreapi.com/), developed by @antxhan, @hannac7, @alexandra-riva, @gonibarjin, and @yusun-lab as part of our Front End Developer program at Hyper Island.  
+A collaborative project using the [Fake Store API](https://fakestoreapi.com/), developed by [@antxhan](https://github.com/antxhan), [@hannac7](https://github.com/hannac7), [@alexandra-riva](https://github.com/alexandra-riva), [@gonibarjin](https://github.com/gonibarjin), and [@yusun-lab](https://github.com/yusun-lab) as part of our Front End Developer program at Hyper Island.  
 
 ## Live Demo  
 Check out the live site here: [Mock E-Commerce Site](https://antxhan.github.io/fakestore/)
